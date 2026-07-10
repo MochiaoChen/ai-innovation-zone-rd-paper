@@ -1,0 +1,26 @@
+\begin{table}[htbp]
+\centering
+\caption{Main Regression Results: AI Pilot Zone Policy and Corporate Investment}
+\label{tab:main}
+\begin{threeparttable}
+\begin{tabular}{lcc}
+\toprule
+ & (1) R\&D Intensity & (2) Capital Expenditure \\
+\midrule
+$Treat_{it}$ & 0.0004 & -0.0007 \\
+ & (1.377) & (-0.781) \\
+\midrule
+Controls & Yes & Yes \\
+Firm FE & Yes & Yes \\
+Year FE & Yes & Yes \\
+\midrule
+$N$ & 32,910 & 44,474 \\
+$R^2$ (within) & 0.0467 & 0.0171 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item \textit{Notes}: Dependent variables are defined as: (1) R\&D expense scaled by total assets; (2) capital expenditure scaled by total assets; (3) R\&D personnel as a share of total employees. $Treat_{it}$ equals one if firm $i$'s city is designated as an AI pilot zone in or before year $t$. Controls include firm size (log total assets), leverage, ROA, firm age (log), cash holdings, Tobin's Q, and an SOE dummy. All regressions include firm and year fixed effects. Standard errors are clustered at the firm level. $t$-statistics in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.10$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

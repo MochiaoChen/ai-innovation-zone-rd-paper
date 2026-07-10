@@ -1,0 +1,28 @@
+\begin{table}[htbp]
+\centering
+\caption{Heterogeneity Analysis: AI Exposure and Policy Effects}
+\label{tab:hetero}
+\begin{threeparttable}
+\begin{tabular}{lcccccc}
+\toprule
+ & (1) R\&D\\ \small(Interaction) & (2) CAPEX\\ \small(Interaction) & (3) R\&D\\ \small(High AI) & (4) R\&D\\ \small(Low AI) & (5) CAPEX\\ \small(High AI) & (6) CAPEX\\ \small(Low AI) \\
+\midrule
+$Treat_{it}$ & -0.0001 & -0.0004 & 0.0017** & 0.0001 & 0.0014 & -0.0009 \\
+ & (-0.250) & (-0.463) & (2.224) & (0.273) & (0.618) & (-0.924) \\
+$HighAI_i$ &  &  &  &  &  &  \\
+ &  &  &  &  &  &  \\
+$Treat_{it} \times HighAI_i$ & 0.0028*** & -0.0018 &  &  &  &  \\
+ & (3.742) & (-0.853) &  &  &  &  \\
+\midrule
+$N$ & 32,910 & 44,474 & 5,506 & 27,404 & 6,579 & 37,895 \\
+Controls & Yes & Yes & Yes & Yes & Yes & Yes \\
+Firm FE & Yes & Yes & Yes & Yes & Yes & Yes \\
+Year FE & Yes & Yes & Yes & Yes & Yes & Yes \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item \textit{Notes}: Columns (1)-(2) include the interaction term $Treat_{it} \times HighAI_i$. Columns (3)-(6) are subgroup regressions. $HighAI_i$ equals one if the firm belongs to a high-AI-exposure industry (computing, electronics, telecoms, media, biomedical, machinery, automotive). Standard errors clustered at the firm level. $t$-statistics in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.10$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

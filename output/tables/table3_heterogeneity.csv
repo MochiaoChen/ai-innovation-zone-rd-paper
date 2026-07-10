@@ -1,0 +1,7 @@
+﻿Variable,RD_interact,CAPEX_interact,RD_HighAI=1,RD_HighAI=0,CAPEX_HighAI=1,CAPEX_HighAI=0
+$Treat_{it}$,-0.0001,-0.0004,0.0017**,0.0001,0.0014,-0.0009
+,(-0.250),(-0.463),(2.224),(0.273),(0.618),(-0.924)
+$HighAI_i$,,,,,,
+,,,,,,
+$Treat_{it} \times HighAI_i$,0.0028***,-0.0018,,,,
+,(3.742),(-0.853),,,,

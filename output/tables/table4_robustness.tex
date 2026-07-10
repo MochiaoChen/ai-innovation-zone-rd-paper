@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\centering
+\caption{Robustness Checks}
+\label{tab:robust}
+\begin{threeparttable}
+\begin{tabular}{lcccc}
+\toprule
+ & (1) Province$\times$Year FE & (2) PSM-DID & (3) Excl. Municipalities & (4) Baseline (for reference) \\
+\midrule
+$Treat_{it}$ & 0.0008* & 0.0006* & 0.0006* & 0.0004 \\
+ & (1.713) & (1.748) & (1.671) & (1.377) \\
+\midrule
+$N$ & 32,907 & 18,429 & 26,583 & 32,910 \\
+Fixed Effects & Firm, Province$\times$Year & Firm, Year & Firm, Year & Firm, Year \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item \textit{Notes}: Dependent variable is R\&D intensity. Column (1) replaces year FE with province$\times$year FE. Column (2) uses propensity-score matched sample (1:1 nearest neighbour, caliper 0.05, matched on 2018 pre-treatment characteristics). Column (3) excludes firms in the four directly-administered municipalities (Beijing, Shanghai, Tianjin, Chongqing). Column (4) replicates the baseline for comparison. See Figure~\\ref{fig:placebo} for the placebo permutation test (500 replications). $t$-statistics in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.10$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

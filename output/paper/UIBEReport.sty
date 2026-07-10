@@ -1,0 +1,219 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% UIBE课程论文模板
+%% 基于 UCASReport 模板修改，符合对外经济贸易大学学术规范
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{UIBEReport}
+
+%%页边距
+\RequirePackage[left=2.50cm, right=2.50cm, top=2.50cm, bottom=2.50cm]{geometry}
+
+%%一些必要的宏包
+\RequirePackage[unicode=true,colorlinks,urlcolor=blue,linkcolor=blue,bookmarksnumbered=blue]{hyperref}
+\RequirePackage{latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,amsthm,amsxtra,color,bm,calc,ifpdf}
+\RequirePackage{graphicx}
+\RequirePackage{enumerate}
+\RequirePackage{fancyhdr}
+\RequirePackage{listings}
+\RequirePackage{multirow}
+\RequirePackage{makeidx}
+\RequirePackage{xcolor}
+\RequirePackage{fontspec}
+\setmainfont{Times New Roman}
+\setCJKmainfont{SimSun}
+\setCJKsansfont{SimHei}
+\setCJKmonofont{FangSong}
+
+\RequirePackage{setspace}
+\renewcommand{\baselinestretch}{1.52}
+
+\RequirePackage[perpage]{footmisc}
+
+\RequirePackage{chngcntr}
+\RequirePackage{caption}
+\RequirePackage{etoolbox}
+\RequirePackage{booktabs}
+
+\RequirePackage{subfigure}
+\PassOptionsToPackage{hyphens}{url}
+\RequirePackage{hyperref}
+\RequirePackage{pythonhighlight}
+
+\RequirePackage{tcolorbox}
+\RequirePackage{fontawesome}
+\RequirePackage[flushleft]{threeparttable}
+
+%% 重新定义摘要环境以符合期刊格式（两侧缩进，摘要：加粗同行）
+\renewenvironment{abstract}{%
+  \small
+  \list{}{\leftmargin=2em\rightmargin=2em\parsep=0pt}%
+  \item\relax
+  {\heiti 摘\quad 要：}%
+}{%
+  \endlist
+}
+
+%可固定下划线长度
+\makeatletter
+\newcommand\dlmu[2][4cm]{\hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt}
+\makeatother
+
+%%对一些autoref of 中文引用名作修改
+\def\equationautorefname{式}
+\def\footnoteautorefname{脚注}
+\def\itemautorefname{项}
+\def\figureautorefname{图}
+\def\tableautorefname{表}
+\def\partautorefname{篇}
+\def\appendixautorefname{附录}
+\def\chapterautorefname{章}
+\def\sectionautorefname{节}
+\def\subsectionautorefname{小小节}
+\def\subsubsectionautorefname{subsubsection}
+\def\paragraphautorefname{段落}
+\def\subparagraphautorefname{子段落}
+\def\FancyVerbLineautorefname{行}
+\def\theoremautorefname{定理}
+
+%% 图表和公式编号与格式设置
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\counterwithin{equation}{section}
+\renewcommand{\thefigure}{\arabic{section}-\arabic{figure}}
+\renewcommand{\thetable}{\arabic{section}-\arabic{table}}
+\renewcommand{\theequation}{\arabic{section}-\arabic{equation}}
+
+\DeclareCaptionLabelSeparator{onespace}{\ }
+\DeclareCaptionFont{xiaowu}{\zihao{-5}}
+\captionsetup[figure]{
+  labelsep=onespace,
+  font={xiaowu},
+  justification=centering,
+  position=bottom
+}
+\captionsetup[table]{
+  labelsep=onespace,
+  font={xiaowu},
+  justification=centering,
+  position=top
+}
+
+% 自动设置表格字体及注释为小五，且图表自动居中
+\AtBeginEnvironment{tabular}{\zihao{-5}}
+\AtBeginEnvironment{tabular*}{\zihao{-5}}
+\AtBeginEnvironment{tablenotes}{\zihao{-5}}
+\AtBeginEnvironment{table}{\centering}
+\AtBeginEnvironment{figure}{\centering}
+
+%% 标题格式设置
+\ctexset{
+  section = {
+    name = {,、},
+    number = {\chinese{section}},
+    format = {\songti\zihao{4}\bfseries\centering},
+    aftername = {},
+    beforeskip = {0pt},
+    afterskip = {18bp},
+  },
+  subsection = {
+    name = {（,）},
+    number = {\chinese{subsection}},
+    format = {\songti\zihao{-4}\bfseries\raggedright},
+    aftername = {},
+    beforeskip = {12bp},
+    afterskip = {6bp},
+  },
+  subsubsection = {
+    name = {,.},
+    number = {\arabic{subsubsection}},
+    format = {\songti\zihao{-4}\bfseries\raggedright},
+    aftername = {\ },
+    beforeskip = {12bp},
+    afterskip = {6bp},
+  },
+  paragraph = {
+    name = {(,)},
+    number = {\arabic{paragraph}},
+    format = {\songti\zihao{-4}},
+    runin = true,
+    aftertitle = {\ },
+    beforeskip = {0bp},
+    afterskip = {0bp},
+  }
+}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+
+% 一级标题不自动另起一页，符合期刊排版流式布局
+
+\newtheorem{Theorem}{定理}[section]
+\newtheorem{Lemma}[Theorem]{引理}
+\newtheorem{Corollary}[Theorem]{推论}
+\newtheorem{Proposition}[Theorem]{命题}
+\newtheorem{Definition}[Theorem]{定义}
+\newtheorem{Example}[Theorem]{例}
+
+%%参考文献设置
+\RequirePackage[style=apa,backend=biber,sortlocale=zh__pinyin]{biblatex}
+\addbibresource{reference.bib}
+
+\newcommand{\reference}{
+  \clearpage
+  \begin{refcontext}
+    % 取消文献列表中的所有斜体格式
+    \let\olditshape\itshape
+    \renewcommand{\itshape}{}
+    \printbibliography[keyword=zh,title={中文参考文献}]
+    \printbibliography[notkeyword=zh,title={英文参考文献}]
+  \end{refcontext}
+}
+
+%%文本框设置
+\newcommand{\tbox}[1]{
+\begin{center}
+\begin{tcolorbox}[colback=gray!10,%gray background
+                   colframe=black,% black frame colour
+                   width=8cm,% Use 8cm total width,
+                   arc=1mm, auto outer arc,
+                   boxrule=0.5pt,
+                  ]
+{#1}
+\end{tcolorbox}
+\end{center}
+}
+
+%%页眉设置
+\pagestyle{plain}
+
+
+%封面页设置
+{   
+    \title{ \vspace{3cm} \songti \Huge \textbf{{Python与大数据分析课程报告}} \par
+    \vspace{1cm} 
+    \songti \Large {\underline{XXXXXX进展调研}}    
+    \vspace{3cm} }%标题
+
+    \author{
+    \vspace{0.5cm}
+    \songti\Large 姓名\ \dlmu[9cm]{陈沫樵} \qquad \\ %姓名 
+    \vspace{0.5cm}
+    \songti\Large  学号\ \dlmu[9cm]{202442087} \qquad  \\ %学号
+    \vspace{0.5cm}
+    \songti\Large   学院\ \dlmu[9cm]{中国金融学院}\\ %院所
+    \vspace{0.5cm}
+    \songti\Large   班级\ \dlmu[9cm]{鸿儒2401} %院所
+        }
+    \date{\today} % 默认为今天的日期，可以注释掉不显示日期
+}
+
+%%在这里可更改封面logo
+\newcommand{\cover}{
+%%封面校名logo，如果无logo图片，此处使用设计好的文字排版
+\begin{center}
+    \vspace*{1.5cm}
+    {\songti\zihao{1}\bfseries 对外经济贸易大学} \par
+    \vspace{0.4cm}
+    {\songti\zihao{-2}\bfseries University of International Business and Economics}
+\end{center}
+\maketitle
+}

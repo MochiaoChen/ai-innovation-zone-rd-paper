@@ -10,6 +10,7 @@
 
 - 修订稿一 [`draft_v1.pdf`](output/paper/draft_v1.pdf)：核对批次样本量、占比、安慰剂和事件研究窗口，把总体结论收回到“不能拒绝零”。
 - 修订稿二 [`draft_v2.pdf`](output/paper/draft_v2.pdf)：重写论证。平均效应给出置信区间上界；行业对比与批次对比按识别强度分开；2020 年的零效应不再写成已经识别出的稀释。
+- 修订稿三 [`draft_v3.pdf`](output/paper/draft_v3.pdf)：主规格改成扩展双向固定效应。在线性平行趋势下，它与 Borusyak、Jaravel 和 Spiess（2024）的插补估计量是同一组队列—时间效应。微观数据不在仓库中，这组系数没有填进表里。`code/modern_did.py` 在效应已知的合成面板上核对过。
 
 ## 核心发现
 

@@ -48,6 +48,9 @@ run_step "STEP 04 - 描述性统计" "04_descriptive.py"
 # Step 05: 主回归 Table 2
 run_step "STEP 05 - 主回归" "05_main_regression.py"
 
+# Step 05c: 插补估计与扩展双向固定效应。没有 analysis_data.csv 时只打印说明并退出。
+run_step "STEP 05c - 异质性稳健估计" "05c_modern_did.py"
+
 # Step 06: 平行趋势检验 Figure 1
 run_step "STEP 06 - 事件研究图" "06_event_study.py"
 

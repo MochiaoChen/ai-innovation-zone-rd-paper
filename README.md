@@ -4,7 +4,12 @@
 
 本项目利用 2013–2025 年 4,875 家 A 股上市公司面板数据（44,594 条公司-年度观测），采用多期双重差分（Staggered DID）方法，评估中国"国家新一代人工智能创新发展试验区"政策对企业研发投入的微观影响。
 
-论文完整正文见 [`output/paper/main.pdf`](output/paper/main.pdf) / [`main.tex`](output/paper/main.tex)。
+论文原文见 [`output/paper/main.pdf`](output/paper/main.pdf) / [`main.tex`](output/paper/main.tex)。
+
+在原文数字之上另有两份修订稿，原文未改：
+
+- 修订稿一 [`draft_v1.pdf`](output/paper/draft_v1.pdf)：核对批次样本量、占比、安慰剂和事件研究窗口，把总体结论收回到“不能拒绝零”。
+- 修订稿二 [`draft_v2.pdf`](output/paper/draft_v2.pdf)：重写论证。平均效应给出置信区间上界；行业对比与批次对比按识别强度分开；2020 年的零效应不再写成已经识别出的稀释。
 
 ## 核心发现
 
